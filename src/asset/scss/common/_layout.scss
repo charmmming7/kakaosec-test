@@ -1,0 +1,14 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  min-width: $content-width;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex: 1 1 auto;
+  width: $content-width;
+  margin: 0 auto;
+  padding: 0 24px;
+}

@@ -1,0 +1,20 @@
+.sb-show-main.sb-main-padded {
+  margin: 0;
+  padding: 0;
+}
+
+.sbdocs-h1 {
+  margin-bottom: 50px !important;
+}
+
+.sbdocs-h2 {
+  margin: 50px 0  30px !important;
+}
+
+.sbdocs-h3 {
+  margin-top: 30px !important;
+}
+
+#root {
+  height: 100%;
+}
