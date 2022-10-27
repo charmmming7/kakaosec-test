@@ -1,0 +1,32 @@
+import { Meta, Story, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import SelectStock from './index';
+
+export const Template = (args) => <SelectStock {...args} />;
+
+<Meta
+  title="3.Page/SelectStock"
+  component={SelectStock}
+  parameters={{
+    controls: {disable: true},
+    options: {
+      showPanel: false
+    }
+  }}
+/>
+
+# SelectStock
+
+## Props
+
+<ArgsTable story={PRIMARY_STORY}/>
+
+## Default
+
+<Canvas>
+  <Story
+    name="Default"
+    inline={false}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

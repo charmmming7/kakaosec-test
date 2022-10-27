@@ -13,18 +13,16 @@ const StockList = ({
   const [checkedItems, setCheckedItems] = useState(new Set()); 
 
   const checkedItemHandler = (id: string, isChecked: boolean) => {
-    if (isChecked) { //체크 되었을때
-      checkedItems.add(id); //체크시 삽입
-      setCheckedItems(checkedItems); //체크 요소 넣어주기
-    } else if (!isChecked && checkedItems.has(id)) { //체크가 안되었고, id가 있을때(클릭 2번시)
-      checkedItems.delete(id); //체크 두번시 삭제
+    if (isChecked) {
+      checkedItems.add(id);
+      setCheckedItems(checkedItems);
+    } else if (!isChecked && checkedItems.has(id)) { //체크X, id가 있을 때 (클릭 2번시)
+      checkedItems.delete(id); //체크 두번 시 삭제
       setCheckedItems(checkedItems);
     }
     setCheckedItems(checkedItems);
     return checkedItems;
   };
-
-  // console.log(checkedItems);
 
   return (
     <>
