@@ -10,7 +10,8 @@ module.exports = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-a11y'
+    '@storybook/addon-a11y',
+    "@storybook/addon-viewport"
   ],
   previewHead: head => head,
   webpackFinal: async (config, { configType }) => {
@@ -23,9 +24,9 @@ module.exports = {
     ];
 
     const fileLoaderRule = config.module.rules.find(
-      (rule) => !Array.isArray(rule.test) && (rule.test.test('.svg') || rule.test.test('.woff'))
+      (rule) => !Array.isArray(rule.test) && (rule.test.test('.svg') || rule.test.test('.woff') || rule.test.test('.png'))
     );
-    fileLoaderRule.exclude = /\.svg|woff$/;
+    fileLoaderRule.exclude = /\.svg|woff|png$/;
 
     config.module.rules.push({
       test: /\.woff$/,

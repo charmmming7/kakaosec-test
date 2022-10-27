@@ -1,0 +1,73 @@
+import { Meta, Story, Canvas, ArgsTable, PRIMARY_STORY} from '@storybook/addon-docs';
+import Title from './index';
+
+export const Template = (args) => <Title {...args} />;
+
+export const TitleArgTypes = {
+  titleTxt: {
+    table: {
+      category: 'text',
+    },
+    control: {
+      type: 'text'
+    }
+  },
+  descTxt: {
+    table: {
+      category: 'text',
+    },
+    control: {
+      type: 'text'
+    }
+  },
+  isShowClose: {
+    table: {
+      category: 'style'
+    },
+    control: {
+      type: 'boolean',
+    }
+  },
+  onClick: {
+    table: {
+      category: 'function',
+      type: {
+        summary: 'function',
+        detail: '(e: MouseEvent<HTMLButtonElement>) => void;'
+      }
+    },
+    control: { disable: true },
+    action: 'onClick'
+  },
+  className: {
+    table: {
+      category: 'function',
+    },
+    control: { disable: true },
+  }
+};
+
+
+<Meta
+  title="2.Component/Title"
+  component={Title}
+  argTypes = {{...TitleArgTypes}}
+/>
+
+# Title
+
+## Variations
+
+### Default
+
+<Canvas>
+  <Story
+    name="Default"
+    args={{
+      titleTxt: '받고 싶은 주식<br />찜하세요!',
+      descTxt: '고른 주식 중 하나를 최대 500만원어치 드릴게요.'
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

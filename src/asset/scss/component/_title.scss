@@ -1,0 +1,40 @@
+.title {
+  &_wrap {
+    position: relative;
+    width: 100%;
+    padding-bottom: 32px;
+
+    .btn_area {
+      position: relative;
+      height: 44px;
+
+      .btn_close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: $z-min;
+      }
+    }
+  }
+
+  &_inner {
+    max-width: $content-width - 48;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &_txt {
+    padding-top: 8px;
+    color: $black2;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 44px;
+  }
+
+  &_desc {
+    padding-top: 8px;
+    color: $black3;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

@@ -1,0 +1,29 @@
+import { Meta, Story, Canvas, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
+import Layout from './index';
+
+export const Template = (args) => <Layout {...args} />;
+
+<Meta
+  title="2.Component/Layout"
+  component={Layout}
+/>
+
+# Layout
+
+## Props
+
+<ArgsTable story={PRIMARY_STORY}/>
+
+## Default
+
+<Canvas>
+  <Story
+    name="Default"
+    inline={false}
+    args={{
+      children: <p>Content Area</p>
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

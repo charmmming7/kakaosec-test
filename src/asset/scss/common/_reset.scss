@@ -112,7 +112,7 @@ a,
 a:focus,
 a:active,
 a:hover {
-  color: $black;
+  color: $black2;
   text-decoration: none;
 }
 
@@ -121,6 +121,7 @@ button,
 input,
 select,
 textarea {
+  color: $black2;
   font-size: 14px;
   font-family: $noto, -apple-system, BlinkMacSystemFont, 'Malgun Gothic', Dotum, Helvetica, sans-serif;
 }

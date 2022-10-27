@@ -1,0 +1,88 @@
+import { Meta, Story, Canvas, ArgsTable, PRIMARY_STORY} from '@storybook/addon-docs';
+import StockButton from './index';
+
+export const Template = (args) => <StockButton {...args} />;
+
+export const ButtonArgTypes = {
+  text: {
+    table: {
+      category: 'text',
+    },
+    control: {
+      type: 'text'
+    }
+  },
+  onClick: {
+    table: {
+      category: 'function',
+      type: {
+        summary: 'function',
+        detail: '(e: MouseEvent<HTMLButtonElement>) => void;'
+      }
+    },
+    control: { disable: true },
+    action: 'onClick'
+  },
+  className: {
+    table: {
+      category: 'function',
+    },
+    control: { disable: true },
+  }
+};
+
+<Meta
+  title="2.Component/StockButton"
+  component={StockButton}
+  argTypes = {{...ButtonArgTypes}}
+/>
+
+# StockButton
+
+## Props
+
+<ArgsTable story={PRIMARY_STORY} />
+
+## Variations
+
+### Default
+
+<Canvas>
+  <Story
+    name="Default"
+    args={{
+      text: '3개이상 선택하세요',
+      idxArray: []
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Selected
+
+<Canvas>
+  <Story
+    name="Selected"
+    args={{
+      text: '받을래요. 찜!',
+      idxArray: [{name: "버크셔 헤서웨이"}, {name: "세일즈포스"}, {name: "에스티 로더"}]
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Over
+
+<Canvas>
+  <Story
+    name="Over"
+    args={{
+      text: '받을래요. 찜!',
+      idxArray: [{name: "버크셔 헤서웨이"}, {name: "세일즈포스"}, {name: "에스티 로더"}, {name: "모더나"}, {name: "엔비디아"},]
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

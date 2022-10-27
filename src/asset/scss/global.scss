@@ -5,5 +5,10 @@
 @import 'common/layout';
 
 // Component
+@import 'component/title';
+@import 'component/stock_button';
+@import 'component/stock_list';
 
 // Page
+@import 'page/page_select';
+@import 'page/page_slide_stock';

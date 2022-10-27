@@ -1,0 +1,48 @@
+import { Meta, Story, Canvas, ArgsTable, PRIMARY_STORY} from '@storybook/addon-docs';
+import StockList from './index';
+
+export const Template = (args) => <StockList {...args} />;
+
+export const listArray = [
+  {name: "버크셔 헤서웨이", code: "BRK/B"},
+  {name: "세일즈포스", code: "CRM"},
+  {name: "에스티 로더", code: "EL"},
+  {name: "골드만삭스", code: "GS"},
+  {name: "홈디포", code: "HD"},
+  {name: "제이피모간체이스", code: "JPM"},
+  {name: "오라클", code: "ORCL"},
+  {name: "화이자", code: "PFE"},
+  {name: "AT&T", code: "T"},
+  {name: "UPS", code: "UPS"},
+  {name: "월마트", code: "WMT"},
+  {name: "AMD", code: "AMD"},
+  {name: "ASML", code: "ASML"},
+  {name: "모더나", code: "MRNA"},
+  {name: "엔비디아", code: "NVDA"},
+];
+
+<Meta
+  title="2.Component/StockList"
+  component={StockList}
+/>
+
+# StockList
+
+## Props
+
+<ArgsTable story={PRIMARY_STORY} />
+
+## Variations
+
+### Default
+
+<Canvas>
+  <Story
+    name="Default"
+    args={{
+      listArray: listArray
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
