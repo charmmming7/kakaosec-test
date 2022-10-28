@@ -1,28 +1,18 @@
-import React, {useState, SyntheticEvent} from 'react';
+import React, {SyntheticEvent} from 'react';
 import IconFavorite from '../../asset/img/favorite.svg';
 
 export interface StockListProps {
   listArray: Array<any>;
+  checkedList: any;
   onChange?: (e: SyntheticEvent) => void;
 }
 
 const StockList = ({
   listArray,
+  checkedList,
   onChange
 }: StockListProps) => {
-  const [checkedItems, setCheckedItems] = useState(new Set()); 
-
-  const checkedItemHandler = (id: string, isChecked: boolean) => {
-    if (isChecked) {
-      checkedItems.add(id);
-      setCheckedItems(checkedItems);
-    } else if (!isChecked && checkedItems.has(id)) { //체크X, id가 있을 때 (클릭 2번시)
-      checkedItems.delete(id); //체크 두번 시 삭제
-      setCheckedItems(checkedItems);
-    }
-    setCheckedItems(checkedItems);
-    return checkedItems;
-  };
+  const checkedArr = Array.from(checkedList);
 
   return (
     <>
@@ -30,12 +20,7 @@ const StockList = ({
       <ul className="stock_list" tabIndex={0} role="listbox" aria-labelledby="stock_list_title">
         {listArray.map((item, index) => {
           const url = `../../asset/img/stock/stock_${index+1}.svg`;
-          const [isChecked, setChecked] = useState<boolean>(false);
-          const checkHandler = (e: SyntheticEvent) => {
-            setChecked(!isChecked);
-            checkedItemHandler(e.target.id, e.target.checked);
-          };
-
+          const isChecked = false;
           return (
             <li 
               key={index} 
@@ -47,7 +32,7 @@ const StockList = ({
                 id={`stock_chk_${index}`}
                 name="stock_chk"
                 className="input_chk"
-                onChange={(e) => checkHandler(e)}
+                onChange={onChange}
               />
               <label htmlFor={`stock_chk_${index}`} className="label">
                 <div className="thumb">

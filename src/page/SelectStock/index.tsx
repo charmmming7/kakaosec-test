@@ -26,19 +26,33 @@ export const listArray = [
 const SelectStock = () => {
 
   const [checkedItems, setCheckedItems] = useState(new Set()); 
+  const [isChecked, setChecked] = useState<boolean>(false);
 
   const onChange = (e: SyntheticEvent) => {
-    console.log(e);
+    setChecked(!isChecked);
+    checkedItemHandler(e.target.id, e.target.checked);
   };
 
+  const checkedItemHandler = (id: string, isChecked: boolean) => {
+    if (isChecked) {
+      checkedItems.add(id);
+      setCheckedItems(checkedItems);
+    } else if (!isChecked && checkedItems.has(id)) { //체크X, id가 있을 때 (클릭 2번시)
+      checkedItems.delete(id); //체크 두번 시 삭제
+      setCheckedItems(checkedItems);
+    }
+    setCheckedItems(checkedItems);
+    console.log(checkedItems);
+    return checkedItems;
+  };
 
-
+  const checkedArr = Array.from(checkedItems);
 
   return (
     <Layout className="page_select">
       <Title titleTxt="받고 싶은 주식<br />찜하세요!" descTxt="고른 주식 중 하나를 최대 500만원어치 드릴게요."/>
-      <StockList listArray={listArray} onChange={onChange}/>
-      <StockButton idxArray={[]} text="3개이상 선택하세요"/>
+      <StockList listArray={listArray} onChange={onChange} checkedList={checkedItems}/>
+      <StockButton idxArray={checkedArr} text="3개이상 선택하세요"/>
       <p className="guide_txt"><IconFavorite />찜한 주식은<br />‘내 관심’에도 넣어둘게요!</p>
     </Layout>
   )

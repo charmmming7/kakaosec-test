@@ -11,6 +11,10 @@
     margin-bottom: 20px;
     text-align: center;
 
+    .label {
+      cursor: pointer;
+    }
+
     .name {
       @include fonts(16,24,500);
       display: block;
